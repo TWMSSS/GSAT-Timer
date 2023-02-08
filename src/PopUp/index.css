@@ -1,0 +1,52 @@
+.close {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 100px;
+}
+
+.close:hover {
+    background-color: #00000029;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    background-color: #00000080;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.popup > div {
+    width: 80%;
+    max-width: 1000px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.popup > div .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.popup > div .body > div:not(:last-child) {
+    margin-bottom: 150px;
+}
+
+.popup > div .body a {
+    display: block;
+}
+
+.popup > div .body p {
+    margin-bottom: 15px;
+}

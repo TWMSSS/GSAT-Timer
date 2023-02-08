@@ -1,0 +1,69 @@
+.embed {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.embed .centerBox {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.embed .titleBox {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #ff9f5f;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.embed .timerBox {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #4d7cff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.embed .timerBox > div {
+    flex: 1 1 auto;
+    min-width: 200px;
+    width: calc(25% - 120px);
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 800;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
+    background-color: #002a9c;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.embed .timerBox > div > div > span {
+    font-size: 2rem;
+}
+
+.embed .extraBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.embed .extraBox p {
+    font-size: 1.3rem;
+    margin: 15px;
+    font-weight: bold;
+}
