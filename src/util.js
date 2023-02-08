@@ -13,6 +13,7 @@ export const initPopUp = () => {
     popupRender = createRoot(document.querySelector("#popup"))
 }
 
+export const GSAT_NAME = "113年學測";
 export const GSAT_EST_TIME = new Date(process.env.GSAT_EST || "2024/01/20");
 export const calcTime = (milisec) => {
     var day = Math.floor(milisec / (1000 * 60 * 60 * 24));

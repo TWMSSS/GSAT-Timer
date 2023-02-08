@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { GSAT_EST_TIME, calcTime } from "../util";
+import { GSAT_EST_TIME, calcTime, GSAT_NAME } from "../util";
 
 import "./index.css";
 
@@ -23,7 +23,7 @@ export default () => {
                 fontSize: "3.5rem",
                 fontWeight: 800,
                 padding: "0 10px"
-                }}>113年學測</span>剩下</p>
+                }}>{GSAT_NAME}</span>剩下</p>
         </div>
         <div className="timerBox">
             <div><div>{String(time[0]).padStart(2, '0')}<span>天</span></div></div>

@@ -5,7 +5,7 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import html2canvas from "html2canvas";
 
-import { calcTime, gasText, GSAT_EST_TIME, showPopUp } from "../util";
+import { calcTime, gasText, GSAT_EST_TIME, GSAT_NAME, showPopUp } from "../util";
 
 import "./index.css";
 
@@ -48,7 +48,7 @@ export default () => {
                 const ftime = time.map(e => String(e).padStart(2, "0"));
                 navigator.share({
                     title: "分享計時器",
-                    text: `你知道嗎? 距離「113學測」還剩下 ${ftime[0]}天 ${ftime[1]}小時 ${ftime[2]}分鐘 ${ftime[3]}秒 喔! 送你一句勵志的話: ${text}`,
+                    text: `你知道嗎? 距離「${GSAT_NAME}」還剩下 ${ftime[0]}天 ${ftime[1]}小時 ${ftime[2]}分鐘 ${ftime[3]}秒 喔! 送你一句勵志的話: ${text}`,
                     files: [
                         new File([blob], "est.png", {
                             type: blob.type
@@ -74,7 +74,7 @@ export default () => {
                         fontSize: "3rem",
                         fontWeight: 800,
                         padding: "0 10px"
-                        }}>113年學測</span>剩下</p>
+                        }}>{GSAT_NAME}</span>剩下</p>
                 </div>
 
                 <div className="funcBox" style={{
