@@ -8,6 +8,7 @@
   },
   "repository": "https://github.com/TWMSSS/GSAT-Timer",
   "author": "Muisnow <Muisnow@teams.3zh-studio.com>",
+  "homepage": ".",
   "license": "Apache-2.0",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
