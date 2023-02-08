@@ -29,13 +29,21 @@ export default () => {
     useEffect(() => {
         if (!hide) return;
 
-        html2canvas(document.querySelector("#app")).then(e => e.toBlob((blob) => {
+        html2canvas(document.querySelector(".centerBox > div")).then(e => e.toBlob((blob) => {
             if (typeof navigator.share === "undefined") {
-                navigator.clipboard.write([
-                    new ClipboardItem({
-                        [blob.type]: blob
-                    })
-                ]).then(e => showPopUp("成功！", <p>已複製到剪貼簿</p>));
+                if ("clipboard" in navigator) {
+                    navigator.clipboard.write([
+                        new ClipboardItem({
+                            [blob.type]: blob
+                        })
+                    ]).then(e => showPopUp("成功！", <p>已複製到剪貼簿</p>));
+                } else {
+                    let url = URL.createObjectURL(blob);
+                    let doc = document.createElement("a");
+                    doc.href = url;
+                    doc.download = "est.png";
+                    doc.click();
+                }
             } else {
                 const ftime = time.map(e => String(e).padStart(2, "0"));
                 navigator.share({
@@ -74,9 +82,10 @@ export default () => {
                 }}>
                     <FontAwesomeIcon icon={faShare} size="3x" onClick={capture} />
                     <FontAwesomeIcon icon={faCode} size="3x" onClick={() => {
-                        const iframeScript = `<iframe src="${location.protocol}//${location.host}/#/embed"></iframe>`;
+                        const iframeScript = `<iframe src='${location.protocol}//${location.host}${location.pathname}${location.pathname.endsWith("/#/") ? "embed" : "#/embed"}' style='border: 0;'></iframe>`;
                         showPopUp("嵌入倒計時器", <div>
                             <p>您可以將此倒計時器以iframe的方式嵌入至您的網站中</p>
+                            <p>盡量使用動態大小來讓頁面不至於走板。</p>
                             <SyntaxHighlighter language="html" style={atomOneDark}>{iframeScript}</SyntaxHighlighter>
                         </div>)
                     }} />
